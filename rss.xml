@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Kaibin&#39;s Blog</title>
+    <link>https://kaibinyang.com/</link>
+    
+    <atom:link href="https://kaibinyang.com/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>Kaibin的个人博客</description>
+    <pubDate>Wed, 14 Jul 2021 09:57:43 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>归来仍是GitHub Pages</title>
+      <link>https://kaibinyang.com/2021/backing-to-GitHub-Pages/</link>
+      <guid>https://kaibinyang.com/2021/backing-to-GitHub-Pages/</guid>
+      <pubDate>Tue, 06 Jul 2021 12:18:26 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;兜兜转转，从最开始的GitHub Pages + Cloudflare CDN方案，到后来的Netlify + Cloudflare CDN方案，其实各有优缺点吧，具体可以看我&lt;a href=&quot;/2021/03/06/moving-to-cloudflare-pages/&quot;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>兜兜转转，从最开始的GitHub Pages + Cloudflare CDN方案，到后来的Netlify + Cloudflare CDN方案，其实各有优缺点吧，具体可以看我<a href="/2021/03/06/moving-to-cloudflare-pages/">上一篇文章</a>。实际上目前我又回到了GitHub Pages上，并且还去掉了原有的Cloudflare CDN。事情是这样的。Beta时期的Cf Pages确实好用，访问和编译速度都快，但是到了现在的正式版阶段，事情就不一样了。</p><p>简单记录一下我所发现的不一样的地方：</p><ul><li>自定义域名格式从<code>*.pages.dev</code>变成了<code>*-&lt;xxx&gt;.pages.dev</code>，<code>&lt;xxx&gt;</code>是一个随机生成的三位字符串，不再是完全可自定义前缀的了；</li><li>速度变慢了。访问速度倒不一定是Cf本身的问题，也完全有可能是因为Wǒguó tèsè啦，早就已经见怪不怪了。但是目前比直接GitHub Pages还要慢。而且编译起来也开始好几十秒了，估计是用的人多起来了吧。</li><li>稳定性下降。当时不知为何，Cloudflare CDN的部分IP无法访问了，很可能是某些众所周知的原因吧，毕竟Guówài测试点全部都是正常的。其中就有分配到我站点的IP。当时去Cloudflare Support提了一个工单（#2114027，虽然不登陆看不到）看能不能更换一个IP，结果不行。虽然等了几周，好了，但是还是有点余悸。</li></ul><p>起初收到邮件太激动，没去看文档。后来发现还有以下限制。做个对比吧（均为Free套餐）：</p><ul><li>Cf Pages每月的编译次数限制是500次。而GitHub则限制时间为2000min，结合其很快的编译速度，保守估计每次20sec，那么每月也能有6k次编译；</li><li>Cf Pages最多添加10个自定义域名。这个倒是比GitHub只有一个好，甚至行业领先，我估计大多数人都用不完；</li><li>对于网站大小：</li></ul><table><thead><tr><th align="center"></th><th align="center">Cloudflare Pages</th><th align="center">GitHub Repo</th></tr></thead><tbody><tr><td align="center">文件数量</td><td align="center">20000个</td><td align="center">-</td></tr><tr><td align="center">单个文件大小</td><td align="center">25MB</td><td align="center">警告大于50MB，禁止大于100MB</td></tr><tr><td align="center">仓库总大小*</td><td align="center"><del>20000*25MB=488.28GB</del></td><td align="center">未指明，「强烈建议」小于5GB</td></tr></tbody></table><p>*：由于Cloudflare Pages目前仅支持从GitHub Repo进行构建，所以仓库总大小仍然受到GitHub Repo限制，计算结果仅仅是理想情况（雾）。</p><p>所以搞静态博客半生，归来仍是GitHub Pages。唯一的缺点就是用不上太多诸如HTTP/3之类的新技术了，HSTS Header也加不了，算是美中不足吧。可能观望一段时间我又要套上Cf的CDN了（离谱极了）。</p><p>遂弃之。</p>]]></content:encoded>
+      
+      
+      
+      <category domain="https://kaibinyang.com/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/">网站建设</category>
+      
+      
+      <comments>https://kaibinyang.com/2021/backing-to-GitHub-Pages/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>转移到Cloudflare Pages</title>
+      <link>https://kaibinyang.com/2021/moving-to-Cloudflare-Pages/</link>
+      <guid>https://kaibinyang.com/2021/moving-to-Cloudflare-Pages/</guid>
+      <pubDate>Sat, 06 Mar 2021 00:07:47 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;今天早上收到了一封来自Cloudflare的邮件，出于我订阅了证书透明度监视以及网站月度分析报告，Cf也从来不发推广和垃圾邮件，我会阅读来自他们的每一封邮件。&lt;br&gt;结果打开内容一看，是Cloudflare Page Beta的邀请函。于是我迫不及待地打开了Cloudfla</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>今天早上收到了一封来自Cloudflare的邮件，出于我订阅了证书透明度监视以及网站月度分析报告，Cf也从来不发推广和垃圾邮件，我会阅读来自他们的每一封邮件。<br>结果打开内容一看，是Cloudflare Page Beta的邀请函。于是我迫不及待地打开了Cloudflare Dashboard，对Pages进行设置。</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>配置过程很简单。点击“Start a new project”，然后登陆你的GitHub账号，然后选择你想要部署的repo，最后输入你部署所使用的命令即可。目前只支持通过GitHub的部署，我想应该是其他平台的Apps还没注册下来。</p><p>与Netlify同样的，你也有两种使用方式：</p><ul><li>像之前一样将生成好的静态文件push到你的远程Git仓库，Cloudflare监测到变更时进行拉取并直接伺服。</li><li>把整个项目文件夹push到你的远程Git仓库，Cloudflare监测到变更时进行拉取，按照你的配置编译出静态文件然后进行伺服。</li></ul><p>第一种不用说了，使用起来是割裂感很小的，甚至可以说没有，就是改一个DNS记录的事情。而第二种，原先我在Netlify死活配置不起来的，在Cf我确实是成功配置了。因为在部署命令上Cf也做了不少预设，包括Gatsby、Jekyll、Hugo、Next.js、等等，也包括我正在使用的Hexo。不需要修改多少设置就可以直接使用。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在完成配置之后，Cloudflare会给你分配一个*.pages.dev的域名（可以自定义前缀），你可以直接使用，当然也可以修改成自己的域名。如果你的域名也托管在Cloudflare，那可太方便了，直接在Custom domains输入你想要使用的域名，一键就给你安排妥当了，DNS记录啥的全帮你修改好。更是不会遇到像Netlify那样一定要关闭一个域名的Cf CDN才能够从Netlify颁发证书的问题。</p><p>当然作为Cloudflare的亲儿子，你更是可以通过Cloudflare Access来实现Netlify要付费的访问管理和登陆验证。（这功能现在是Coming soon，但是你如果已经拥有了自己的域名当然可以直接用）</p><p>另外因为他们做了GitHub App，在你的repo中你可以直接查看站点的部署状态，这样集成之后甚至做到了跟GitHub Pages的体验相差无几。</p><p>但是缺点仍是有的，比如站点静态文件的编译速度相较通过本地进行编译再上传是要慢得多，一次大概需要3min。但是对于我来说其实感知并不是特别强，因为之前我的配置下，站点静态文件从GitHub的服务器同步到Cf的CDN也需要不少时间。</p><h2 id="为什么要转移到Cf-Pages？"><a href="#为什么要转移到Cf-Pages？" class="headerlink" title="为什么要转移到Cf Pages？"></a>为什么要转移到Cf Pages？</h2><ul><li>尝鲜；</li><li>速度相较先前有显著提升；</li><li>管理起来实在是方便得多。</li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>拿出上次Netlify的表格……</p><table><thead><tr><th align="center"></th><th align="center">Netlify + Cloudflare</th><th align="center">Netlify</th><th align="center">GitHub Pages + Cloudflare</th><th align="center">GitHub Pages</th><th align="center">Cloudflare Pages</th></tr></thead><tbody><tr><td align="center">速度</td><td align="center">好</td><td align="center">较好</td><td align="center">较好</td><td align="center">差</td><td align="center">好</td></tr><tr><td align="center">稳定性（国内）</td><td align="center">好</td><td align="center">差</td><td align="center">好</td><td align="center">较好</td><td align="center">好</td></tr><tr><td align="center">HTTPS</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td></tr><tr><td align="center">自定义域名</td><td align="center">多个</td><td align="center">多个</td><td align="center">单个（多个可跳转）</td><td align="center">单个</td><td align="center">多个</td></tr><tr><td align="center">配置容易程度</td><td align="center">难</td><td align="center">难</td><td align="center">较简单</td><td align="center">简单</td><td align="center">较简单</td></tr><tr><td align="center">HTTP/3</td><td align="center">有</td><td align="center">无</td><td align="center">有</td><td align="center">无</td><td align="center">有</td></tr></tbody></table><blockquote><p>本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……<br><a href="https://zhuanlan.zhihu.com/p/354992383">转移到Cloudflare Pages - 知乎</a></p></blockquote>]]></content:encoded>
+      
+      
+      
+      <category domain="https://kaibinyang.com/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/">网站建设</category>
+      
+      
+      <comments>https://kaibinyang.com/2021/moving-to-Cloudflare-Pages/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>App+1: 带壳截图工具capXDR</title>
+      <link>https://kaibinyang.com/2021/app-capXDR/</link>
+      <guid>https://kaibinyang.com/2021/app-capXDR/</guid>
+      <pubDate>Sat, 09 Jan 2021 09:55:36 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;截图，对于大部分用户来说都是非常常用的一个操作，对于一些科技行业的文字工作者或许使用得更是无比频繁。&lt;/p&gt;
+&lt;p&gt;我们也常常想要生成像设备厂商宣传页面上那样的带有设备外型的截图，像这样的：&lt;br&gt;&lt;img src=&quot;https://pic4.zhimg.com/80/v2</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>截图，对于大部分用户来说都是非常常用的一个操作，对于一些科技行业的文字工作者或许使用得更是无比频繁。</p><p>我们也常常想要生成像设备厂商宣传页面上那样的带有设备外型的截图，像这样的：<br><img src="https://pic4.zhimg.com/80/v2-33e0c7af9074d62b00bfeb1d34f5bbaf.jpg" alt="MacBook Pro 16 inch"></p><p>对于移动设备已经有了一些App来为我们进行后期处理，比如Snapmod。<br>那么在桌面端有没有办法做出这么漂亮的图片而不打开专业的图片处理工具呢？</p><p>少数派给出了使用截图神器ShareX的方案：<a href="https://sspai.com/post/64354">一日一技 | 使用 ShareX 快速为截图套壳 - 少数派</a><br>然而看起来实在是太麻烦了。还涉及到抠图、配置文件修改之类的操作实在是难以操作。</p><p>所以我希望介绍一款能够轻松完成截图加壳处理的App：capXDR。<br>这是一个民间大佬开发的macOS App。目前只有Intel版本，M1用户也可以通过Rosetta运行。<br>看一下设置菜单好了：<br><img src="https://pic4.zhimg.com/80/v2-210a45c6385e7b18306e4c0d0c02df96.png" alt="capXDR设置菜单"><br>作者画了不少机壳模版了，可以通过导入的方式选择。</p><p>下载地址：</p><ul><li>App本体：<a href="https://cdn.jsdelivr.net/lihaoyun6/capXDR-plugins/app/capXDR.dmg">https://cdn.jsdelivr.net/lihaoyun6/capXDR-plugins/app/capXDR.dmg</a></li><li>插件列表：<a href="https://github.com/lihaoyun6/capXDR-plugins/blob/master/thumbs/textlist.md">https://github.com/lihaoyun6/capXDR-plugins/blob/master/thumbs/textlist.md</a></li></ul><p>项目repo地址：</p><ul><li>GitHub：<a href="https://github.com/lihaoyun6/capXDR-plugins">https://github.com/lihaoyun6/capXDR-plugins</a></li><li>Gitee：<a href="https://gitee.com/lihaoyun/capXDR-plugins">https://gitee.com/lihaoyun/capXDR-plugins</a></li></ul><blockquote><p>本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……<br><a href="https://zhuanlan.zhihu.com/p/343090998">App+1: 带壳截图工具capXDR - 知乎</a></p></blockquote>]]></content:encoded>
+      
+      
+      
+      
+      <comments>https://kaibinyang.com/2021/app-capXDR/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>电影+1: 《如果声音不记得》</title>
+      <link>https://kaibinyang.com/2020/movie-The-End-of-Endless-Love/</link>
+      <guid>https://kaibinyang.com/2020/movie-The-End-of-Endless-Love/</guid>
+      <pubDate>Sun, 13 Dec 2020 13:19:33 GMT</pubDate>
+      
+        
+        
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/336680007&quot;&gt;电影+1: 《如果声音不记得》 - 知乎&lt;/a&gt;&lt;br&gt;本文中包含大量剧透的内容已</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<blockquote><p>本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……<br><a href="https://zhuanlan.zhihu.com/p/336680007">电影+1: 《如果声音不记得》 - 知乎</a><br>本文中包含大量剧透的内容已经全部折叠，可按需阅读。</p></blockquote><p>朋友推荐了一部电影：《如果声音不记得》。</p><details>  <summary>这部电影讲述了（可能包含剧透，点击展开）</summary>  一个叫吉择的抑郁症女孩和一个叫辛唐的外星男孩的故事。男主辛唐是一个舞蹈生，他来自外星，拥有一种超能力，可以通过声音让其他地球人产生幻觉。如果这些人产生了正面的情感：开心、幸福、振奋等等，他的生命线就能够延长，因此其实这个星球的人都可以长生不老。但是弱点也是有的：如果对一个人施法超过三次就会和那个人绑定，寿命和那个人变得一样长，并且也要靠着那个人的正面情感活下去。他的父亲就是因为和他母亲绑定而去世的。每一次有效的施法都要拍照记录到一个本子上。<p>  他在地球上有一个同星球的朋友尉迟瞳。在辛唐的父亲去世之际，他曾托付迟瞳要照顾好辛唐。</p><p>  女主吉择小时候，她的母亲因为她的父亲对她非常禽兽的行为而杀了那个父亲，进了监狱。因为这个和旁人的各种言辞她罹患了抑郁症。她和男主在一个学校学习民谣，兼职做一个主播赚钱维生。每个月10号都去监狱看望她的母亲。</p><p>  这是主角的人设。</p><p>  影片开始，设定是还有100天通往男主和男二母星的通道会开启，并且只有这一次。男主在墓地悼念父母的时候遇到了正在直播的女主，然后冷漠地对待了那个女主，最后用超能力让她产生幻觉离开了。</p><p>  然后是男主回到家，跟男二聊了几句之后男二去KTV工作了。正打算睡觉男二突然给他打电话让他过去，原来是遇到了一个曾经被男二施过法的人。然后他就过去帮他，结果也没施法就在那里打气球。</p><p>  然后突然碰到从房间里出来的女主，她是被一些老板说了骚话之后跑出来，然后那几个老板紧追不舍出来。被男主救了。男主在一条路上想要给女主拍照问问名字，谁知道惹来一顿臭骂。</p><p>  又后来女主在一座桥上打算跳河，男主突然第六感爆发冲到桥上施法然后把她救下。就此男主和女主绑定了。</p><p>  后来为了活命男主跟女主合作拍视频，又后来恋爱，然后男二告诉了她真相，然后分手了，然后又后悔分手故意去借治疗抑郁症把自己搞失忆。那一天刚好是回母星通道开放。男主突然不想辜负男二的好意回母星然后又后悔回去开门回地球。男二又突然觉悟地球的美好也和他一起推通道门。然后帮助他让女主回忆起与他的一幕幕「美好回忆」。</p><p>  最后因为女主失忆男主濒死，还直播唱歌，最后男主死透了的时候女主又突然回忆成功赶到病房抱着男主的手臂在那哭突然又把男主救活了。</p></details><p>在豆瓣这部片的评分实在是低，18404人评只有4.1分，其中一星就有38%的人。<br>是啊这部片简直是糟糕透了，一个个转折来得猝不及防，根本就料不到「还能这么反转？」。郭导的一贯手法，各种情情爱爱狗血得一批。男主各种突然想到有女主危险，各种鬼畜般的相遇，还有什么带着目的接近然后假戏真做。更有甚者女主还在墓地搞直播。拜托麻烦想一想女主这种颜值的在各种网络平台发视频估计得有一大堆lsp看了，真需要这样蹭热度？</p><p>影片设定更是糟糕透顶，外星人长得跟地球人一模一样，来到地球根本没人发现。要真有这种能力拿到国家大权都是有手就行不是？</p><p>还蹭抑郁症患者这类特殊群体的热度，这种像极了几年前的网文的作品能有4分简直就是难以置信。</p><p>这是我看完这部片好几个小时之后的感受。但是在看片的过程中，我的一个朋友一直在哭，我就也觉得有那么些感动。散场了我问他怎么回事，他说他当时并没有考虑这么多转折到底有多么不合理，他看到更多的是中间那一段对抑郁症的那种细致入微的真切的描写，更多是男主为了女主抛弃自己无限的寿命而给予她更多陪伴的美好情感。</p><p>看完过了好几个小时之后，和我一样他也感觉剧情和设定都不合理得就像拿Apple M1和Kirin 9000对比一样糟糕，简直可以称得上是诡异了。其中对病症描写的插入也有些突兀。<br>但或许，我们不应该仅仅停留在这个糟糕的剧情和设定上，这些东西就像朱自清《背影》中父亲对交通规则的违反一样无伤大雅。我们应该看到影片中对抑郁症患者的描写和人性的真善美。<br>虽然郭导确实是在借这些特殊群体蹭热度，但是Linus（LMG那个）说过：「热度没有好坏之分。」。这些热度不仅给了郭导，同样也作为首个描写抑郁症的电影给了抑郁症特殊群体。</p><blockquote><p>愿所有的黑暗，都能被爱照亮。</p></blockquote>]]></content:encoded>
+      
+      
+      
+      
+      <comments>https://kaibinyang.com/2020/movie-The-End-of-Endless-Love/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Netlify 体验</title>
+      <link>https://kaibinyang.com/2020/oh-damn-Netlify/</link>
+      <guid>https://kaibinyang.com/2020/oh-damn-Netlify/</guid>
+      <pubDate>Sun, 08 Nov 2020 11:24:20 GMT</pubDate>
+      
+        
+        
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/279699415&quot;&gt;Netlify 体验 - 知乎&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<blockquote><p>本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……<br><a href="https://zhuanlan.zhihu.com/p/279699415">Netlify 体验 - 知乎</a></p></blockquote><p>先说结论：<strong>就难用。</strong>虽然很多博主都推荐这玩意作为GitHub Pages的加速CDN，但是在我看来它还是表现欠佳。<br>下面以时间顺序说说它到底难用在哪里。</p><h2 id="使用前"><a href="#使用前" class="headerlink" title="使用前"></a>使用前</h2><p>没错，在开始正式使用之前，我就遇到了很蛋疼的问题：Netlify的API域名<code>api.netlify.com</code>在国内访问不畅的……<br>于是我的注册遇到了阻碍，Netlify使用体验，卒，享年几分钟。<br>你以为这就完了？当然不是，挂上代理我们还是勇士。<br><img src="https://pic4.zhimg.com/80/v2-a37b8c5455ebb045e9d29ac06a6268bf.png" alt="Netlify的四种注册方式"><br>之前就说过我原先是使用GitHub Pages的，于是在愉快的GitHub授权登录之后，我终于进入了Netlify的控制面板首页。</p><h2 id="配置中"><a href="#配置中" class="headerlink" title="配置中"></a>配置中</h2><p>注册完了，当然是开始配置。Netlify支持两种配置方式：</p><ul><li>像之前一样将生成好的静态文件push到你的远程Git仓库，Netlify监测到变更时进行拉取并直接伺服。</li><li>把整个项目文件夹push到你的远程Git仓库，Netlify监测到变更时进行拉取，按照你的配置编译出静态文件然后进行伺服。</li></ul><p>原来是考虑使用第二种的，这样还可以通过Netlify来搭建一个静态博客的CMS，但是<del>不知道出了什么什么幺蛾子</del>，可能是选项没理解好，我就是配置不起来。<br>那就暂时选择第一种体验体验嘛。</p><h2 id="使用中"><a href="#使用中" class="headerlink" title="使用中"></a>使用中</h2><p>于是乎打开自动分配的<code>something.netlify.app</code>域名。哇！<code>ERR_CONNECTION_TIMEOUT</code>耶！真不错！</p><p>因为我国特殊的网络环境，于是我等待了一些时间，终于是打开了，这稳定性真的是不敢恭维……</p><p>如果运气好能够打开的话，速度到还是很可以，比我目前使用的方案快得多。不过考虑到稳定性和出错时修复的及时性，暂时我还是不会迁移。而且控制面板有时候也会和网站一样抽风打不开，需要代理……<br>另外自动部署还算是是比较省心的，每次你往你的远端Git仓库push commit，Netlify都会自动进行部署，不需要操心。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table><thead><tr><th align="center"></th><th align="center">Netlify + Cloudflare</th><th align="center">Netlify</th><th align="center">GitHub Pages + Cloudflare</th><th align="center">GitHub Pages</th></tr></thead><tbody><tr><td align="center">速度</td><td align="center">好</td><td align="center">较好</td><td align="center">较好</td><td align="center">差</td></tr><tr><td align="center">稳定性（国内）</td><td align="center">好</td><td align="center">差</td><td align="center">好</td><td align="center">较好</td></tr><tr><td align="center">HTTPS</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td><td align="center">支持</td></tr><tr><td align="center">自定义域名</td><td align="center">多个</td><td align="center">多个</td><td align="center">单个（多个可实现跳转）</td><td align="center">单个</td></tr><tr><td align="center">配置容易程度</td><td align="center">难</td><td align="center">难</td><td align="center">较简单</td><td align="center">简单</td></tr><tr><td align="center">HTTP/3</td><td align="center">有</td><td align="center">无</td><td align="center">有</td><td align="center">无</td></tr></tbody></table>]]></content:encoded>
+      
+      
+      
+      <category domain="https://kaibinyang.com/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/">网站建设</category>
+      
+      
+      <comments>https://kaibinyang.com/2020/oh-damn-Netlify/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Bug+1: 用终端commit GitHub远程仓库时用户识别错误</title>
+      <link>https://kaibinyang.com/2020/bug-GitHub-commits-error-user/</link>
+      <guid>https://kaibinyang.com/2020/bug-GitHub-commits-error-user/</guid>
+      <pubDate>Fri, 23 Oct 2020 16:08:29 GMT</pubDate>
+      
+        
+        
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/268233540&quot;&gt;Bug+1: 用终端commit GitHub远程仓库时用户识别错误 - 知乎&lt;/</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<blockquote><p>本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……<br><a href="https://zhuanlan.zhihu.com/p/268233540">Bug+1: 用终端commit GitHub远程仓库时用户识别错误 - 知乎</a><br>这是一篇比较水的文章。</p></blockquote><p>闲着没事去<a href="https://github.com/SkyYkb/SkyYkb.github.io">本博客所在的GitHub repo</a>看了看，结果发现一堆其他人的commit。<br><img src="https://pic4.zhimg.com/80/v2-17e1714026535889e6dedfa10131f363_1440w.png" alt="本repo的commit历史页面"></p><p>遂点开commit详情查看内容，发现确实是我提交的东西。。。<br>这我就很奇怪了，于是打开那个人的首页，发现并没有看到有在我的repo里有过任何提交。。。<br><img src="https://pic4.zhimg.com/80/v2-630fc7f96e31ee26182c8d7dc9225531_1440w.png" alt="神秘人物的GitHub首页"></p><p>难道这是个bug？</p><p>于是乎我去联系了GitHub Support，发现是我在复制GitHub提供的no-reply邮箱地址的时候少了一位，结果出现了这样的问题。</p><p>但是我很好奇的是，为什么会出现这样的问题，因为我只是填错了邮箱地址，但是我的GitHub Personal Access Token是正确的。也就是说，我用一个不存在的邮箱地址，以及SkyYkb的Token，就能把commit放到别人的名义下面去，虽然并不会在别人的首页显示。</p><p>仿佛看到了什么危险的东西啊。。。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>经过一番Google，发现一个<a href="https://gist.github.com/adefrutoscasado/6573392a5fa916b95529458aba79a73f">Gist</a>提供了解决方案：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~&lt;number of commits&gt; -x <span class="string">&quot;git commit --amend --author &#x27;Author Name &lt;author.name@mail.com&gt;&#x27; --no-edit&quot;</span></span><br></pre></td></tr></table></figure><p>但是缺点是会导致在GitHub上显示出的commit时间是你执行之后的时间。<br>但无论如何作者变回来了。<br>但是在GitHub的边栏仍然会留有那个神秘人物的名字。<br><img src="https://pic4.zhimg.com/80/v2-b38d808fb1c20aacd1b4e833b8f73a8d_1440w.png" alt="边栏上的Contributors"></p><p>这个时候就直接找<a href="https://support.github.com/">GitHub Support</a>说明情况就可以了。或者稍微等一等也可以。</p>]]></content:encoded>
+      
+      
+      
+      
+      <comments>https://kaibinyang.com/2020/bug-GitHub-commits-error-user/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>我们为什么需要HTTP/3</title>
+      <link>https://kaibinyang.com/2020/why-HTTP3/</link>
+      <guid>https://kaibinyang.com/2020/why-HTTP3/</guid>
+      <pubDate>Sat, 17 Oct 2020 14:09:08 GMT</pubDate>
+      
+        
+        
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/266505187&quot;&gt;我们为什么需要HTTP/3？ - 知乎&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<blockquote><p>本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……<br><a href="https://zhuanlan.zhihu.com/p/266505187">我们为什么需要HTTP/3？ - 知乎</a></p></blockquote><h2 id="什么是HTTP-3？"><a href="#什么是HTTP-3？" class="headerlink" title="什么是HTTP/3？"></a>什么是<a href="https://zh.wikipedia.org/wiki/HTTP/3">HTTP/3</a>？</h2><p>继<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE#%E7%89%88%E6%9C%AC#HTTP/1.1">HTTP/1.1</a>和<a href="https://zh.wikipedia.org/wiki/HTTP/2">HTTP/2</a>之后的全新版本HTTP协议。</p><p>HTTP/3协议废除了TCP协议，改用<a href="https://zh.wikipedia.org/wiki/QUIC">QUIC</a>。全名叫<strong>Q</strong>uick <strong>U</strong>DP <strong>I</strong>nternet <strong>C</strong>onnection，读作“quick”，<del>一听就知道很快嘛。</del>从名字我们不难看出，这是个基于<a href="https://zh.wikipedia.org/wiki/%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AE">UDP</a>的协议。大佬们就是用这个80年代协议加上个传输安全，成了QUIC。</p><p>再说说QUIC的前身gQUIC。其实早在Chrome 55的时候Google就已经实现了gQUIC协议，然后添加了一个Chrome flag，而且现在还存在，使用Chrome的读者可以到<a href="chrome://flags/#enable-quic">chrome://flags/#enable-quic</a>进行考古。但是gQUIC也不同于QUIC，它只能用于发送HTTP流量，而QUIC除了应用在了HTTP/3，还可以用于发送DNS、SSH、Telnet之类的流量。完全取代UDP应该问题不大。</p><p>在2015年，Google把QUIC提交到了<a href="https://zh.wikipedia.org/wiki/IETF">IETF</a>，然后整出来一个叫HTTP-over-QUIC的东西，又后来改了个名字，称为HTTP/3。</p><h2 id="HTTP-2是怎么运作的？"><a href="#HTTP-2是怎么运作的？" class="headerlink" title="HTTP/2是怎么运作的？"></a>HTTP/2是怎么运作的？</h2><p>要说新技术，肯定要把老技术拿出来说一说。</p><p>HTTP/2以及之前所有版本的HTTP协议，都是基于<a href="https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE">TCP</a>协议构建的。在你的设备与服务器开始安全的（经过<a href="https://zh.wikipedia.org/wiki/TLS">TLS</a>加密的）交换你想要的数据之前，他们首先需要建立连接，然后进行三次握手，你的设备就能确定服务器的身份，然后开始传输加密的数据。（这里假设你不想要握手时候证书之类的数据，当然除了应用程序也没什么人会想要这个）</p><h2 id="那它有什么不同？好在哪里？"><a href="#那它有什么不同？好在哪里？" class="headerlink" title="那它有什么不同？好在哪里？"></a>那它有什么不同？好在哪里？</h2><p><del>唯一的不同，是处处都不同。</del>（老苹果了）</p><p>从一开始你可能就要想了，UDP不是上世纪80年代的<del>比站长还老的</del>东西了吗？怎么还翻出来炒冷饭呢？我们知道，DNS协议就是基于UDP实现的，一大原因就是因为它的速度。就算服务器远在灯塔国，一个基于UDP的DNS请求去回一趟（注意是去了又回来）都只用100+ms。</p><p>于是从上文不难得出答案，那就是快，因为不需要建立连接，原先的TLS三次握手被简化为一次。同时还具有很好的兼容性，HTTP/3在QUIC的基础上仍然支持了传统的TLS三次握手。</p><p>同时，不需要建立连接还带来了新的好处，就是免中断。在TCP连接建立好之后，如果你的网络环境在传输过程中发生了改变，如你突然连接上了虚拟专用网络，又或者是你从无线局域网跑到了蜂窝移动数据，通常你就需要重新建立连接来传输完整的数据。在Chromium浏览器中，这体现为“ERR_NETWORK_CHANGED”的报错。于是你就需要刷新页面重新加载了。</p><p>但QUIC不需要，他只管发数据包，反正没有连接。但是这里又有一个转折了：如果你的网络环境发生了改变，你的公网IP势必会发生变化，这样如果服务器还往原来的地方发数据包，你岂不是收不到了？这个时候，你的设备往往只需要朝服务器再发一个数据包，包含了刚开始握手时给的唯一ID，并且要求服务器更改传输地址就可以了。</p><p>并且不同于TCP完全由操作系统实现，QUIC通过应用程序层面实现的方式不需要理会系统的优化程度，只管自己实现就好。</p><p>综上，我能看到的最舒服和最迫切的应用前景就是DNS了。传统的UDP DNS太不安全，轻松劫持，DoT、DoH三次握手太慢，DNSSec又不是大多域名都启用，所以DNS这块应用HTTP/3可以说是完美解决大部分问题。</p><h2 id="那它难道没有缺点？"><a href="#那它难道没有缺点？" class="headerlink" title="那它难道没有缺点？"></a>那它难道没有缺点？</h2><blockquote><p>Every coin has 2 sides.</p></blockquote><p>它肯定是有缺点的。但其实都不是它本身的缺点：</p><ul><li>浏览器目前对HTTP/3的支持尚不完善，Chrome、Edge、Firefox都是只有每夜构建版才支持。（前两者的叫Canary，最后者的叫Nightly）甚至还需要加flag或者config。Curl甚至还得自己编译。</li><li>由于NAT设备优化的问题，可能会使丢包率高于原先的TCP连接。</li><li>有些NAT设备会重写UDP报文的header，然后当场爆炸。</li></ul><p>完。</p>]]></content:encoded>
+      
+      
+      
+      <category domain="https://kaibinyang.com/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/">网站建设</category>
+      
+      
+      <comments>https://kaibinyang.com/2020/why-HTTP3/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>简评iOS 14和macOS 11</title>
+      <link>https://kaibinyang.com/2020/iOS-14-macOS-11-summary/</link>
+      <guid>https://kaibinyang.com/2020/iOS-14-macOS-11-summary/</guid>
+      <pubDate>Thu, 25 Jun 2020 10:21:14 GMT</pubDate>
+      
+        
+        
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/150714383&quot;&gt;WWDC 2020预热 - 知乎&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<blockquote><p>本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……<br><a href="https://zhuanlan.zhihu.com/p/150714383">WWDC 2020预热 - 知乎</a></p></blockquote><p>在刚刚过去的WWDC 2020上，苹果发布了新的iOS 14和macOS 11 Big Sur。我想简单地进行一些评价。</p><h2 id="iOS-14"><a href="#iOS-14" class="headerlink" title="iOS 14"></a>iOS 14</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>这次的发布会上没有提到的优点真的好多诶：</p><ul><li><p>授权相册时可以选择部分图片进行授权</p><img src="https://pic4.zhimg.com/80/v2-10d817fa3414e1bfa5dcba74cdb6256b.png" width = "50%" height = "50%" alt="Photos Permission" align=center /></li><li><p>进行内网设备发现时需要权限请求</p><img src="https://pic4.zhimg.com/80/v2-b5bb6c0aed1e1e868698ac371b839765.png" width = "50%" height = "50%" alt="Local Network" align=center /></li><li><p>音乐App的UI改进<br>专辑页面更加突出专辑图片了，播放页面终于可以在显示歌词的同时显示进度条和控制条了：</p><img src="https://pic4.zhimg.com/80/v2-d6ad3d088b948532a1c746ca6ae38308.png" width = "50%" height = "50%" alt="Album" align=center /><img src="https://pic4.zhimg.com/80/v2-d587e78ce5d716bb68ec646454ece959.png" width = "50%" height = "50%" alt="Playing" align=center /></li><li><p>字体改进</p></li></ul><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>缺点也有，不多，没有macOS多就是了<br>：<br>App Library里的搜索与Spotlight的功能严重重合，并且对比Spotlight还少了上拉返回功能。Spotlight在划出后可以再上划退出，App Library里的就算划到底也不行……</p><img src="https://pic4.zhimg.com/80/v2-f4052ff7d6b0b5d7fe80a55ef2325e14.png" width = "50%" height = "50%" alt="App Library" align=center /><p>我不否定App Library很好用，但是这个搜索功能简直是智障设计，负一屏、主页都已经可以呼出Spotlight，还在App Library里面放置搜索简直脱裤放屁。</p><h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul><li><p>因为遇到Bug，我进入了macOS Recovery Utilities里……惊喜地发现，它支持了深色模式！</p></li><li><p>电池健康可以估计剩余容量了，还有了像iOS一样的缓慢充电模式</p><img src="https://pic4.zhimg.com/80/v2-300da7541ab2c1528defc94457fa3536.png" width = "50%" height = "50%" alt="Maxium Capacity" align=center /><img src="https://pic4.zhimg.com/80/v2-c400e8637e3d36409dba0bbbfb53d6a1.png" width = "50%" height = "50%" alt="Optimized Charging" align=center /></li></ul><h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><p>重点来讲讲缺点。集中在UI设计上……这也是最大的更新点吧：</p><ul><li><p>新的圆角图标真的太丑了啊啊啊啊啊啊，很幼稚，完全没有了Catalina那会儿的优雅和方正……</p><img src="https://pic4.zhimg.com/80/v2-e8753f20e1d78db26f0e76f48cc183dc.png" width = "50%" height = "50%" alt="New Icons" align=center /><p>可能是我个人审美问题，但是我确实接受不了拟物图标硬是加上一个背景的设计……</p></li><li><p>尤其这App Store、信息、FaceTime和邮件的阴影，真的是油腻腻又不和谐：</p><img src="https://pic4.zhimg.com/80/v2-244184bc59ca73142945ddca1fec90ff.png" width = "50%" height = "50%" alt="Especial Apps" align=center /></li><li><p>设置里这个电池图标又是什么鬼啊</p><img src="https://pic4.zhimg.com/80/v2-07948a6d01c6581ea4bb771ac4bae6e6.png" width = "50%" height = "50%" alt="Battery Icon" align=center /><p>简直就是梦回iOS 6啊……</p></li><li><p>不能直接Spotlight查词了，连跳转都不行……</p><img src="https://pic4.zhimg.com/80/v2-7c9f480c080212f3bd1fade0e2ec842b.png" width = "50%" height = "50%" alt="Spotlight on macOS" align=center /></li></ul>]]></content:encoded>
+      
+      
+      
+      
+    </item>
+    
+    <item>
+      <title>WWDC 2020 Keynote总结</title>
+      <link>https://kaibinyang.com/2020/WWDC-2020-keynote-summary/</link>
+      <guid>https://kaibinyang.com/2020/WWDC-2020-keynote-summary/</guid>
+      <pubDate>Mon, 22 Jun 2020 17:09:55 GMT</pubDate>
+      
+        
+        
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文延后在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/150648362&quot;&gt;WWDC 2020总结 - 知乎&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<blockquote><p>本文延后在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……<br><a href="https://zhuanlan.zhihu.com/p/150648362">WWDC 2020总结 - 知乎</a></p></blockquote><h2 id="概括在-Apple-各个平台推出的各项令人兴奋的创新和更新"><a href="#概括在-Apple-各个平台推出的各项令人兴奋的创新和更新" class="headerlink" title="概括在 Apple 各个平台推出的各项令人兴奋的创新和更新"></a>概括在 Apple 各个平台推出的各项令人兴奋的创新和更新</h2><p>只写大会讲到的，没讲到的当不重要了/doge。若无特殊说明，图片来自<a href="https://www.apple.com.cn/newsroom/2020/06/13-new-innovative-technologies-and-features-unveiled-at-wwdc20/">Apple 官网</a>。<br>本次大会的防疫措施非常完善。</p><p>iOS、iPadOS、tvOS、macOS的Developer Beta版本从即日起开始放送。<br>iOS、iPadOS、tvOS、macOS、watchOS的Public Beta版本从今年7月开始放送。<br>官方传送门：<a href="https://beta.apple.com/sp/betaprogram/">Apple Beta Software Program</a><br>不想加入Beta计划，但想尝鲜：<a href="https://ibeta.me/">iBeta 尝鲜派</a><br>目前我已升级macOS Big Sur和iOS 14的第一个Developer Beta，没什么大问题。</p><h3 id="iOS-14"><a href="#iOS-14" class="headerlink" title="iOS 14"></a>iOS 14</h3><ul><li><p>App Library<br>不同于Android设备上的应用抽屉功能，App Library会自动将你的App分类放在一个个类别里。与此同时，允许你隐藏一些主屏幕页面。</p><img src="https://www.apple.com.cn/newsroom/images/live-action/wwdc-2020/Apple_ios14-app-library-screen_06222020_inline.jpg.large_2x.jpg" width = "75%" height = "75%" alt="App Library" align=center /></li><li><p>Widgets on Home Screen<br>现在iOS 14允许你把“今日”视图中的Widgets放到主屏幕并调整大小。看起来动画非常Smooth。</p></li><li><p>画中画<br>支持把浏览器中（应该视频App也支持的）的视频以小窗模式悬浮播放。</p></li><li><p>Siri<br>终于不用弹出全屏Siri界面了，可以在屏幕下方弹出一个小小的Siri图标，并且以非全屏的方式展现反馈结果。得益于新的算法，现在的听写支持了基于本地的神经网络听写，更准确，也更私密。还带来了新的翻译App。自动识别源语言，并能实现非常短时延的翻译。</p></li><li><p>信息<br>支持快速给特定人物发送消息：在聊天框输入人名。支持回复特定消息，支持群聊“@”功能，支持根据发言频率智能调整群聊头像。</p><img src="https://www.apple.com.cn/newsroom/images/live-action/wwdc-2020/Apple_ios14-group-mentions-messages-screen_06222020_inline.jpg.medium_2x.jpg" width = "75%" height = "75%" alt="Messages" align=center /></li><li><p>地图<br>带来了3D地图，暂时仅美国可用，稍晚将推广到英国、印度、加拿大。内建于地图App的旅游建议功能，以及环保交通方式的导航：骑行。你甚至可以选择平坦路线还是健身路线。针对电动汽车的智能电量追踪。针对国内的车牌限行功能。</p><img src="https://www.apple.com.cn/newsroom/images/live-action/wwdc-2020/Apple_ios14-maps-screen_06222020_inline.jpg.medium_2x.jpg" width = "75%" height = "75%" alt="Maps" align=center /></li><li><p>CarPlay/钱包<br>基于NFC的智能车钥匙，支持iCloud远程锁定钥匙、iMessage分享。利用U1芯片实现比传统无钥匙解锁更舒适的无钥匙进入体验。</p></li><li><p>App Store<br>推出了新的App Clips功能，也就是我们所说的小程序。免安装，通过NFC感知、浏览器、iMessage分享、二维码快速运行。一切为速度而生。配合Apple Pay、Sign in with Apple、新的App Library，体验也是非常Smooth。同时对开发者提出App Clips必须小于10MB。</p><img src="https://www.apple.com.cn/newsroom/images/live-action/wwdc-2020/Apple_ios14-app-clips-spin-app_06222020_inline.jpg.medium_2x.jpg" width = "75%" height = "75%" alt="App Clips" align=center /></li><li><p>电话<br>以通知样式显示来电。支持普通电话和VoIP呼叫。</p></li></ul><h3 id="iPadOS-14"><a href="#iPadOS-14" class="headerlink" title="iPadOS 14"></a>iPadOS 14</h3><ul><li><p>iOS的所有新功能。</p></li><li><p>照片、文件等一众系统App<br>添加/优化了边栏功能，优化工具栏。</p></li><li><p>音乐<br>支持全屏播放界面。</p></li><li><p>Siri<br>同样加入了小图标功能，并且相对iOS还多了实时建议功能。</p></li><li><p>搜索<br>UI和功能都类似macOS Spotlight的新搜索，称为Universal Search。</p><img src="https://www.apple.com.cn/newsroom/images/live-action/wwdc-2020/apple_ipados14_universal-search-springboard_062220_big.jpg.medium_2x.jpg" width = "75%" height = "75%" alt="Universal Search" align=center /></li><li><p>Apple Pencil<br>现在可以在任意一个文本框使用Pencil进行文本手写输入，<strong>支持中文</strong>。支持在备忘录中智能把手迹图形转换为更加标准的图形、智能选中并自由移动手迹。</p><img src="https://www.apple.com.cn/newsroom/images/live-action/wwdc-2020/Apple_ipados14_handwriting_06222020_inline.gif.medium_2x.gif" width = "75%" height = "75%" alt="Apple Pencil" align=center /></li></ul><h3 id="AirPods-固件"><a href="#AirPods-固件" class="headerlink" title="AirPods 固件"></a>AirPods 固件</h3><ul><li>无缝切换<br>设备间无缝自动切换，无需手动操作。</li><li>空间音频<br>影院级空间音频特效（真·听声辨位？），还会随着你的头、设备实时调节，支持Dolby Atmos。</li></ul><h3 id="watchOS-7"><a href="#watchOS-7" class="headerlink" title="watchOS 7"></a>watchOS 7</h3><ul><li><p>表盘<br>各种可定制的新表盘。支持由第三方App、网站、iMessage等社交媒体导入表盘。</p><img src="https://www.apple.com.cn/newsroom/images/live-action/wwdc-2020/Apple-watch-watchos7_face-sharing_06222020_inline.jpg.medium_2x.jpg" width = "75%" height = "75%" alt="Watch faces" align=center /></li><li><p>地图<br>如iOS 14一样的骑行导航功能。</p></li><li><p>运动<br>跳舞追踪！广场舞福音！</p></li><li><p>Activity App<br>在iOS上推出了全新设计的Activity App来更好的显示你的活动数据。</p></li><li><p>睡眠<br>联动你的iPhone给你助眠，追踪你的睡眠数据。全新的闹铃铃声、震动闹铃、早安界面。</p><img src="https://www.apple.com.cn/newsroom/images/live-action/wwdc-2020/Apple-watch-watchos7_sleep-health-app_06222020_inline.jpg.medium_2x.jpg" width = "75%" height = "75%" alt="Sleep" align=center /></li><li><p>洗手<br>自动检测你开始洗手，并且为你计时。</p><img src="https://www.apple.com.cn/newsroom/images/live-action/wwdc-2020/Apple-Watch-watchOS7_handwashing-screen_06222020_inline.gif.medium_2x.gif" width = "75%" height = "75%" alt="Wash hands" align=center /></li><li><p>Siri<br>一堆iOS讲过的Siri新功能。</p></li><li><p>今年开始可以申请Public Beta测试了。</p></li></ul><h3 id="隐私"><a href="#隐私" class="headerlink" title="隐私"></a>隐私</h3><ul><li>Sign in with Apple<br>让<del>（逼）</del>开发者允许用户转移当前账户到Sign in with Apple。</li><li>杂项<br>定位、录音无论前台后台都向用户显示。可以命令App不要追踪用户。要求开发者提供隐私使用说明。</li></ul><h3 id="家庭"><a href="#家庭" class="headerlink" title="家庭"></a>家庭</h3><ul><li>开源HomeKit以便与Amazon、Google等公司合作制定标准，保护隐私。</li><li>更强大的自动化。</li><li>iOS设备能更快地配对新的智能设备。</li><li>摄像头<br>自定义监控敏感区域。人脸识别。</li><li>灯<br>类似True Tone的自适应灯光。</li></ul><h3 id="tvOS-14"><a href="#tvOS-14" class="headerlink" title="tvOS 14"></a>tvOS 14</h3><ul><li>Game Center<br>多用户功能。</li><li>画中画，与iOS 14类似。</li><li>小窗口Siri，与iOS 14类似。</li><li>Apple TV+<br>拍了部新的科幻片Foundation。</li><li>家庭<br>支持显示智能摄像头的画面。</li></ul><h3 id="macOS-11"><a href="#macOS-11" class="headerlink" title="macOS 11"></a>macOS 11</h3><ul><li>命名<br>今年的叫macOS Big Sur。</li><li>设计<br>迄今为止最大的变化，所有系统App都用了类似微软Fluent Design的层级化设计语言重新设计。菜单栏不再那么紧凑，整体变得圆润。下文将会省略各个App中“使用全新设计”相关语句。貌似iOS/iPadOS 14的边栏新设计就是从这里来的。</li><li>控制中心<br>把iOS/iPadOS/watchOS上玩了好几年的控制中心拿到macOS上。</li><li>通知中心<br>整合今日视图和通知视图。</li><li>信息<br>引入了类似iOS 14的新设计，支持搜索和一些特效，由Catalyst构建。</li><li>地图<br>也类似iOS 14，由Catalyst构建。</li><li>Safari<br>提高了JavaScript性能。速度很快，快Chrome足足50%，很省电，很保护隐私。自由选择扩展程序对网页的访问权限、允许访问的时间。支持自定义首页背景。添加跟踪器统计。内置翻译。</li></ul><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><ul><li>Mac将迁移到Apple自家的芯片，Hackintosh时代即将告一段落……</li><li>新的Apple芯片已经能很流畅地运行Logic Pro X、Final Cut Pro X、Microsoft Office、许多Adobe专业软件，恐怖……</li><li>就算是当前的A12Z也能很流畅地运行macOS Big Sur、Microsoft Office甚至Adobe Lightroom、Photoshop打开一个5GB的项目、Final Cut编辑3条4K ProRes视频、1080P玩游戏了，太牛了啊……</li><li>给了Xcode新的能力能更方便地开发新架构下的App。</li><li>Universal Apps可以同时在两个架构运行。</li><li>Rosetta 2能直接转译原先为Intel Mac编写的App到新架构。</li><li>支持虚拟化运行其他OS。</li><li>这才是Catalyst的真正意义！能原生支持iOS/iPadOS Apps。那么这么说，Apple是打算使用ARM架构了。</li><li>推出了Developers Quick Start Program，能够买到新架构的搭载macOS Big Sur Developer Beta的Mac开发设备。</li></ul><h2 id="总结-amp-一些想法"><a href="#总结-amp-一些想法" class="headerlink" title="总结&amp;一些想法"></a>总结&amp;一些想法</h2><p>看起来苹果终于快要达到“One Apple”的境界了：Mac转移到自家生产的芯片，至此所有的Apple产品都已经不再依赖第三方的处理芯片了。<br>看起来苹果终于找到了开放和封闭之间的绝佳平衡：iOS 14中提供了新的App Clips API，是开放；但是同时也要求开发者提供隐私信息使用声明、支持授权相册时仅提供部分照片，是封闭。<br>苹果依然是那个具有活力的苹果。相信新架构的macOS也能跑得很好。感觉苹果仿佛在下一盘很大的棋，或将成为三星之后第二个可以完全自己造一部手机的公司，哦对了，还有平板、电脑、手表。用这样的控制、能力来达到一个完美的，至少也是绝佳的生态圈。<br>现在的iCloud生态绝对不是苹果生态的完全形态。</p><blockquote><p>本文禁止未经授权的转载。</p></blockquote>]]></content:encoded>
+      
+      
+      
+      <category domain="https://kaibinyang.com/tags/%E5%8F%91%E5%B8%83%E4%BC%9A/">发布会</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>2020.6.21日环食</title>
+      <link>https://kaibinyang.com/2020/2020-6-21-sun-eclipse/</link>
+      <guid>https://kaibinyang.com/2020/2020-6-21-sun-eclipse/</guid>
+      <pubDate>Sun, 21 Jun 2020 15:52:50 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;6月21日，夏至节气当天的14时43分至17时24分，本世纪我国最壮观的“超级日环食”现身天宇，错过要再等十年。&lt;br&gt;下面是本次日环食的精彩瞬间：&lt;/p&gt;
+&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=5836125</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>6月21日，夏至节气当天的14时43分至17时24分，本世纪我国最壮观的“超级日环食”现身天宇，错过要再等十年。<br>下面是本次日环食的精彩瞬间：</p><iframe src="//player.bilibili.com/player.html?aid=583612543&bvid=BV1Fz4y1X7SG&cid=204288514&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720" height="605"> </iframe><p>来源（我转我自己，迷惑行为）：<a href="https://www.bilibili.com/video/BV1Fz4y1X7SG">哔哩哔哩</a>。</p>]]></content:encoded>
+      
+      
+      
+      
+    </item>
+    
+  </channel>
+</rss>

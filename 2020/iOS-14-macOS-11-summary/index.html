@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+        简评iOS 14和macOS 11 | 
+        
+        Kaibin&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/images/logo_River.webp">
+    <link rel="icon" href="/images/logo_River_hd.webp">
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" itemprop="description"
+        content="Kaibin的个人博客">
+    <meta name="keywords"
+        content="Kaibin, Kaibin Yang, Apple, iPhone, iOS, HTTP, macOS, Mac, Blog, Technology">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function () { window.lsloader = { jsRunSequence: [], jsnamemap: {}, cssnamemap: {} }; lsloader.removeLS = function (a) { try { localStorage.removeItem(a) } catch (b) { } }; lsloader.setLS = function (a, c) { try { localStorage.setItem(a, c) } catch (b) { } }; lsloader.getLS = function (a) { var c = ""; try { c = localStorage.getItem(a) } catch (b) { c = "" } return c }; versionString = "/*" + (window.materialVersion || "unknownVersion") + "*/"; lsloader.clean = function () { try { var b = []; for (var a = 0; a < localStorage.length; a++) { b.push(localStorage.key(a)) } b.forEach(function (e) { var f = lsloader.getLS(e); if (window.oldVersion) { var d = window.oldVersion.reduce(function (g, h) { return g || f.indexOf("/*" + h + "*/") !== -1 }, false); if (d) { lsloader.removeLS(e) } } }) } catch (c) { } }; lsloader.clean(); lsloader.load = function (f, a, b, d) { if (typeof b === "boolean") { d = b; b = undefined } d = d || false; b = b || function () { }; var e; e = this.getLS(f); if (e && e.indexOf(versionString) === -1) { this.removeLS(f); this.requestResource(f, a, b, d); return } if (e) { var c = e.split(versionString)[0]; if (c != a) { console.log("reload:" + a); this.removeLS(f); this.requestResource(f, a, b, d); return } e = e.split(versionString)[1]; if (d) { this.jsRunSequence.push({ name: f, code: e }); this.runjs(a, f, e) } else { document.getElementById(f).appendChild(document.createTextNode(e)); b() } } else { this.requestResource(f, a, b, d) } }; lsloader.requestResource = function (b, e, a, c) { var d = this; if (c) { this.iojs(e, b, function (h, f, g) { d.setLS(f, h + versionString + g); d.runjs(h, f, g) }) } else { this.iocss(e, b, function (f) { document.getElementById(b).appendChild(document.createTextNode(f)); d.setLS(b, e + versionString + f) }, a) } }; lsloader.iojs = function (d, b, g) { var a = this; a.jsRunSequence.push({ name: b, code: "" }); try { var f = new XMLHttpRequest(); f.open("get", d, true); f.onreadystatechange = function () { if (f.readyState == 4) { if ((f.status >= 200 && f.status < 300) || f.status == 304) { if (f.response != "") { g(d, b, f.response); return } } a.jsfallback(d, b) } }; f.send(null) } catch (c) { a.jsfallback(d, b) } }; lsloader.iocss = function (f, c, h, a) { var b = this; try { var g = new XMLHttpRequest(); g.open("get", f, true); g.onreadystatechange = function () { if (g.readyState == 4) { if ((g.status >= 200 && g.status < 300) || g.status == 304) { if (g.response != "") { h(g.response); a(); return } } b.cssfallback(f, c, a) } }; g.send(null) } catch (d) { b.cssfallback(f, c, a) } }; lsloader.iofonts = function (f, c, h, a) { var b = this; try { var g = new XMLHttpRequest(); g.open("get", f, true); g.onreadystatechange = function () { if (g.readyState == 4) { if ((g.status >= 200 && g.status < 300) || g.status == 304) { if (g.response != "") { h(g.response); a(); return } } b.cssfallback(f, c, a) } }; g.send(null) } catch (d) { b.cssfallback(f, c, a) } }; lsloader.runjs = function (f, c, e) { if (!!c && !!e) { for (var b in this.jsRunSequence) { if (this.jsRunSequence[b].name == c) { this.jsRunSequence[b].code = e } } } if (!!this.jsRunSequence[0] && !!this.jsRunSequence[0].code && this.jsRunSequence[0].status != "failed") { var a = document.createElement("script"); a.appendChild(document.createTextNode(this.jsRunSequence[0].code)); a.type = "text/javascript"; document.getElementsByTagName("head")[0].appendChild(a); this.jsRunSequence.shift(); if (this.jsRunSequence.length > 0) { this.runjs() } } else { if (!!this.jsRunSequence[0] && this.jsRunSequence[0].status == "failed") { var d = this; var a = document.createElement("script"); a.src = this.jsRunSequence[0].path; a.type = "text/javascript"; this.jsRunSequence[0].status = "loading"; a.onload = function () { d.jsRunSequence.shift(); if (d.jsRunSequence.length > 0) { d.runjs() } }; document.body.appendChild(a) } } }; lsloader.tagLoad = function (b, a) { this.jsRunSequence.push({ name: a, code: "", path: b, status: "failed" }); this.runjs() }; lsloader.jsfallback = function (c, b) { if (!!this.jsnamemap[b]) { return } else { this.jsnamemap[b] = b } for (var a in this.jsRunSequence) { if (this.jsRunSequence[a].name == b) { this.jsRunSequence[a].code = ""; this.jsRunSequence[a].status = "failed"; this.jsRunSequence[a].path = c } } this.runjs() }; lsloader.cssfallback = function (e, c, b) { if (!!this.cssnamemap[c]) { return } else { this.cssnamemap[c] = 1 } var d = document.createElement("link"); d.type = "text/css"; d.href = e; d.rel = "stylesheet"; d.onload = d.onerror = b; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(d, a) }; lsloader.runInlineScript = function (c, b) { var a = document.getElementById(b).innerText; this.jsRunSequence.push({ name: c, code: a }); this.runjs() } })();</script>
+
+    <!-- Import queue -->
+    <script>function Queue() { this.dataStore = []; this.offer = b; this.poll = d; this.execNext = a; this.debug = false; this.startDebug = c; function b(e) { if (this.debug) { console.log("Offered a Queued Function.") } if (typeof e === "function") { this.dataStore.push(e) } else { console.log("You must offer a function.") } } function d() { if (this.debug) { console.log("Polled a Queued Function.") } return this.dataStore.shift() } function a() { var e = this.poll(); if (e !== undefined) { if (this.debug) { console.log("Run a Queued Function.") } e() } } function c() { this.debug = true } } var queue = new Queue();</script>
+
+    <!-- Import CSS -->
+    
+    <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+    <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+    
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: New York,PingFang SC,Helvetica,Helvetica Neue,Microsoft YaHei,微软雅黑,Roboto,Source Sans Pro;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #C5D0D6;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+    <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Kaibin&#39;s Blog">
+    <meta name="msapplication-starturl" content="https://kaibinyang.com/2020/iOS-14-macOS-11-summary/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Kaibin&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/images/logo_River.webp">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+    
+    <link rel=alternate type="application/rss+xml" href="/rss.xml">
+    
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://kaibinyang.com/2020/iOS-14-macOS-11-summary/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="简评iOS 14和macOS 11 | Kaibin&#39;s Blog">
+    <meta property="og:image" content="/images/logo_River_hd.webp">
+    <meta property="og:description"
+        content="Kaibin的个人博客">
+    
+
+    
+    <meta property="article:published_time" content="Thu Jun 25 2020 18:21:14 GMT+0800">
+    <meta property="article:modified_time" content="Wed Jul 14 2021 22:51:15 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+    <link rel="canonical" href="https://kaibinyang.com/2020/iOS-14-macOS-11-summary/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+    
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://kaibinyang.com/2020/iOS-14-macOS-11-summary/index.html",
+    "headline": "简评iOS 14和macOS 11",
+    "datePublished": "Thu Jun 25 2020 18:21:14 GMT+0800",
+    "dateModified": "Wed Jul 14 2021 22:51:15 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Kaibin Yang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//sdn.geekzu.org/avatar/672e168ab21f10280150f6c17726ca16?s=54"
+        },
+        "description": "如果你看到这句话，说明这里出现了问题。<br />如果你愿意，请联系站长（电子邮件可以在侧边栏找到）。"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Kaibin&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/images/logo_River_hd.webp"
+        }
+    },
+    "keywords": "Kaibin, Kaibin Yang, Apple, iPhone, iOS, HTTP, macOS, Mac, Blog, Technology",
+    "description": "Kaibin的个人博客"
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+    
+<!-- InstantClick Support-->
+<script defer="defer" src="/js/instantclick.js" type="module"></script>
+
+
+
+<!-- Fancybox Support -->
+    <!-- For theme: Default is false -->
+    <!-- For page: Default is true -->
+<style id="fancybox_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("fancybox_css","/css/jquery.fancybox.min.css?otQlhCkvZMWCfotnsbOHJg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+<script>lsloader.load("fancybox_js","/js/jquery.fancybox.min.js?Saa00BmpNLz4Pww5frqC2A==", true)</script>
+<script>lsloader.load("utils_js","/js/fancybox.js?Bn7jpQFGBryutJuCiiUSTQ==", true)</script>
+
+
+
+<script defer="defer">
+    window.onscroll = function () {
+        NProgress.configure({ minimum: 0, showSpinner: false });
+        var Height = document.documentElement.scrollHeight;
+        var Top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+        var SeeHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+        var Nowhight = (Top / (Height - SeeHeight));
+        if (Height <= SeeHeight) {//如果整个网页的高度小于或者等于网页可见区域（没有进度条的情况）
+            NProgress.done();
+        }
+        else {//有进度条的情况
+            NProgress.set(Nowhight);
+        }
+    }
+</script>
+
+
+
+<!-- Cloudflare Web Analytics -->
+<script defer="defer" src='https://static.cloudflareinsights.com/beacon.min.js'
+    data-cf-beacon='{"token": "e8752e77b7a04292a2b28026784db147"}'></script>
+
+
+
+<!-- Clarity tracking code for https://kaibinyang.com/ -->
+<script defer="defer">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "5597vodjp0");
+</script>
+
+
+<meta name="yandex-verification" content="e552b7a696279f9f" />
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#iOS-14"><span class="post-toc-number">1.</span> <span class="post-toc-text">iOS 14</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%98%E7%82%B9"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#macOS"><span class="post-toc-number">2.</span> <span class="post-toc-text">macOS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">缺点</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://pic4.zhimg.com/80/v2-a805e93b9a2a1ec0ad74fad46e8f14ba.jpg)">
+    
+            <p class="article-headline-p">
+                简评iOS 14和macOS 11
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="//sdn.geekzu.org/avatar/672e168ab21f10280150f6c17726ca16?s=54" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Kaibin Yang</strong>
+        <span>6月 25, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZElEQVR42u3awa7iQAwEQP7/p3evT1ptaNsTk4cqJySGQM0hNj1+/fnq64WHh4eHh4eHh/cw3iu+fq7/97PX71bv3LsDHh4e3ibvzaM2+NHXn/3fmnyzkt+Gh4eHt8+rPrJ7peLUtuLh4eH9Fl7e+CbbcV088PDw8L6Dl6ysUvNCgoeHh/c0XuEPf7HJPlVCbs9a8PDw8GLe5ADs7tcfPt/Dw8PDGw9dXbfR1+vzlR+bKcPDw8MLeEk0cCqeSI64qo17M2vBw8PDG/N6A0+TYDcPJspxBh4eHt7NvN7AU74Rycok8khiXzw8PLwdXvKBPDiYl5acXQ4j8PDw8A7xeo3yJPbNi1BzmAAPDw9vhTc5oJpEDPmxWVJI8PDw8HZ4+bHTJICYDHKVW3M8PDy8FV6VlA8TVBvuvLTg4eHhPYFXHZxqtrytb8xjETw8PLxNXt5YVwdYq612dYvx8PDwNnnVh3i1IT51PFaIQvDw8PBWeMkhfS9uyO/c+/bCNC4eHh7eUd4kbsgf6/O4IdoIPDw8vJt51cHQXtOcxxnz4oSHh4d3N68a6eZrcnY1qB39Y8DDw8M7xJuMqCbHV70rb8Hx8PDwNnm9gDUfJ80jhupm4eHh4X2K13tY5wFu/qPnkTEeHh7eDq83NpqD8yKRjLdGIQUeHh7eCu9UKNAbJqgODbzZJjw8PLxFXrUY5IdbeVGpFic8PDy85/PyQGFyn2pZwsPDw3s+b1IGqq/zqBcPDw9vn1dtkfNjquqmVA/G8PDw8PZ5kyBgUlqqGxdFIXh4eHg3877vwsPDw8PDw8PDe8D1FxVY41+TOelUAAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=简评iOS 14和macOS 11&url=https://kaibinyang.com/2020/iOS-14-macOS-11-summary/index.html&pic=https://kaibinyang.com/images/logo_River.webp&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=简评iOS 14和macOS 11&url=https://kaibinyang.com/2020/iOS-14-macOS-11-summary/index.html&via=Kaibin Yang" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://kaibinyang.com/2020/iOS-14-macOS-11-summary/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://kaibinyang.com/2020/iOS-14-macOS-11-summary/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Kaibin&#39;s Blog&title=简评iOS 14和macOS 11&summary=Kaibin的个人博客&pics=https://kaibinyang.com/images/logo_River.webp&url=https://kaibinyang.com/2020/iOS-14-macOS-11-summary/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><i><font color="gray">本文共计502字，大约需要1分钟进行阅读。</font></i></p>
+        <blockquote>
+<p>本文同步在我的知乎发布。如果觉得不错可以去点一点赞、喜欢……<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/150714383">WWDC 2020预热 - 知乎</a></p>
+</blockquote>
+<p>在刚刚过去的WWDC 2020上，苹果发布了新的iOS 14和macOS 11 Big Sur。我想简单地进行一些评价。</p>
+<h2 id="iOS-14"><a href="#iOS-14" class="headerlink" title="iOS 14"></a>iOS 14</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>这次的发布会上没有提到的优点真的好多诶：</p>
+<ul>
+<li><p>授权相册时可以选择部分图片进行授权</p>
+<img src="https://pic4.zhimg.com/80/v2-10d817fa3414e1bfa5dcba74cdb6256b.png" width = "50%" height = "50%" alt="Photos Permission" align=center />
+</li>
+<li><p>进行内网设备发现时需要权限请求</p>
+<img src="https://pic4.zhimg.com/80/v2-b5bb6c0aed1e1e868698ac371b839765.png" width = "50%" height = "50%" alt="Local Network" align=center />
+</li>
+<li><p>音乐App的UI改进<br>专辑页面更加突出专辑图片了，播放页面终于可以在显示歌词的同时显示进度条和控制条了：</p>
+<img src="https://pic4.zhimg.com/80/v2-d6ad3d088b948532a1c746ca6ae38308.png" width = "50%" height = "50%" alt="Album" align=center />
+
+<img src="https://pic4.zhimg.com/80/v2-d587e78ce5d716bb68ec646454ece959.png" width = "50%" height = "50%" alt="Playing" align=center />
+</li>
+<li><p>字体改进</p>
+</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>缺点也有，不多，没有macOS多就是了<br>：<br>App Library里的搜索与Spotlight的功能严重重合，并且对比Spotlight还少了上拉返回功能。Spotlight在划出后可以再上划退出，App Library里的就算划到底也不行……</p>
+<img src="https://pic4.zhimg.com/80/v2-f4052ff7d6b0b5d7fe80a55ef2325e14.png" width = "50%" height = "50%" alt="App Library" align=center />
+
+<p>我不否定App Library很好用，但是这个搜索功能简直是智障设计，负一屏、主页都已经可以呼出Spotlight，还在App Library里面放置搜索简直脱裤放屁。</p>
+<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><p>因为遇到Bug，我进入了macOS Recovery Utilities里……惊喜地发现，它支持了深色模式！</p>
+</li>
+<li><p>电池健康可以估计剩余容量了，还有了像iOS一样的缓慢充电模式</p>
+<img src="https://pic4.zhimg.com/80/v2-300da7541ab2c1528defc94457fa3536.png" width = "50%" height = "50%" alt="Maxium Capacity" align=center />
+
+<img src="https://pic4.zhimg.com/80/v2-c400e8637e3d36409dba0bbbfb53d6a1.png" width = "50%" height = "50%" alt="Optimized Charging" align=center />
+
+</li>
+</ul>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><p>重点来讲讲缺点。集中在UI设计上……这也是最大的更新点吧：</p>
+<ul>
+<li><p>新的圆角图标真的太丑了啊啊啊啊啊啊，很幼稚，完全没有了Catalina那会儿的优雅和方正……</p>
+<img src="https://pic4.zhimg.com/80/v2-e8753f20e1d78db26f0e76f48cc183dc.png" width = "50%" height = "50%" alt="New Icons" align=center />
+
+<p>可能是我个人审美问题，但是我确实接受不了拟物图标硬是加上一个背景的设计……</p>
+</li>
+<li><p>尤其这App Store、信息、FaceTime和邮件的阴影，真的是油腻腻又不和谐：</p>
+<img src="https://pic4.zhimg.com/80/v2-244184bc59ca73142945ddca1fec90ff.png" width = "50%" height = "50%" alt="Especial Apps" align=center />
+</li>
+<li><p>设置里这个电池图标又是什么鬼啊</p>
+<img src="https://pic4.zhimg.com/80/v2-07948a6d01c6581ea4bb771ac4bae6e6.png" width = "50%" height = "50%" alt="Battery Icon" align=center />
+
+<p>简直就是梦回iOS 6啊……</p>
+</li>
+<li><p>不能直接Spotlight查词了，连跳转都不行……</p>
+<img src="https://pic4.zhimg.com/80/v2-7c9f480c080212f3bd1fade0e2ec842b.png" width = "50%" height = "50%" alt="Spotlight on macOS" align=center />
+</li>
+</ul>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            若正文中没有特别说明，文章以<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0 协议</a>授权转载。
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://kaibinyang.com/2020/iOS-14-macOS-11-summary/">https://kaibinyang.com/2020/iOS-14-macOS-11-summary/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.16.0/js/md5.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: '4a1e3d566d32b60bc150',
+            clientSecret: '4c704fbfaac7fdeab62e5300814fc1436415a7ce',
+            repo: 'Kaibins-Blog',
+            owner: 'SkyYkb',
+            admin: ['SkyYkb'],
+            id: md5(location.pathname),
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/why-HTTP3/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/WWDC-2020-keynote-summary/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="//sdn.geekzu.org/avatar/672e168ab21f10280150f6c17726ca16?s=54" alt="Kaibin Yang's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        admin@kaibinyang.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:admin@kaibinyang.com" target="_blank" title="电邮联系">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        电邮联系
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about" target="_blank" title="关于">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">person</i>
+                        
+                        关于
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/rss.xml" title="RSS">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                RSS
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/music" title="来点音乐">
+                
+                来点音乐
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/bang" title="让我帮你Bing一下">
+                
+                让我帮你Bing一下
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">13</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+    <span id="footer-image">
+        <a href="//github.com/SkyYkb/Kaibins-Blog" target="_blank" title="Github Pages">
+            <img src="/images/GitHub.webp" alt="Github Pages"><!--
+     --></a>
+    </span>
+
+    <span id="footer-image">
+        <a href="//vercel.com" target="_blank" title="Vercel">
+            <img src="/images/Vercel.webp" alt="Vercel"><!--
+     --></a>
+    </span>
+
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="//github.com/SkyYkb" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="//www.zhihu.com/people/SkyYkb" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Kaibin's Blog
+            
+                <br>
+                全站大约有内容10.2k字。<br>
+                
+                    托管于<a target="_blank" href="//vercel.com/" rel="nofollow noopener">Vercel</a>。
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- GitTalk -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2020;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

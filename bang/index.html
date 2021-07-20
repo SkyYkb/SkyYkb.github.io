@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>让我帮你Bing一下 | Let Me Bing That For You</title>
+    <link
+        href="%E8%AE%A9%E6%88%91%E5%B8%AE%E4%BD%A0Bing%E4%B8%80%E4%B8%8B%20|%20Let%20Me%20Bing%20That%20For%20You_files/style.css"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1 class="title">让我帮你 <img
+                    src="%E8%AE%A9%E6%88%91%E5%B8%AE%E4%BD%A0Bing%E4%B8%80%E4%B8%8B%20|%20Let%20Me%20Bing%20That%20For%20You_files/Bing_logo.svg"
+                    class="bing-logo" alt="Bing" title="让我帮你Bing一下"> 一下</h1>
+            <div class="mk-search-form">
+                <input type="text" id="kw">
+                <button id="search" class="anim-trans">搜索</button>
+            </div>
+        </div>
+
+        <div id="instructions">输入一个问题，然后点击搜索</div>
+
+        <div id="output-box">
+            <input type="text" id="output-link" readonly="readonly">
+            <div>
+                <button class="btn btn-copy anim-trans" data-clipboard-target="#output-link">复制</button>
+                <button class="btn anim-trans" id="btn-preview">预览</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="copyright">
+        Copyright ©Kaibin Yang
+    </footer>
+
+    <!-- 关于弹窗 -->
+    <div id="about-box" class="mk-pop-box">
+        <div class="mk-pop-box-inner">
+            <h3 class="mk-pop-box-title">专治各种伸手党</h3>
+
+            <div class="mk-pop-box-content">
+                <p>创意及原始代码来自bang.psmini.cn，Kaibin Yang更换了搜索引擎。</p>
+                <p>须知：本站与Microsoft公司没有任何联系，Bing 以及本站出现的Bing Logo 是Microsoft公司的商标。</p>
+            </div>
+
+            <button class="mk-pop-box-btn anim-trans" onclick="$('#about-box').fadeOut(200);">我知道了</button>
+        </div>
+    </div>
+
+    <div class="about anim-trans" title="点击查看帮助信息" onclick="showAbout()">?</div>
+
+    <img src="%E8%AE%A9%E6%88%91%E5%B8%AE%E4%BD%A0Bing%E4%B8%80%E4%B8%8B%20|%20Let%20Me%20Bing%20That%20For%20You_files/arrow.png"
+        id="arrow">
+
+    <script
+        src="%E8%AE%A9%E6%88%91%E5%B8%AE%E4%BD%A0Bing%E4%B8%80%E4%B8%8B%20|%20Let%20Me%20Bing%20That%20For%20You_files/clipboard.js"></script>
+    <script
+        src="%E8%AE%A9%E6%88%91%E5%B8%AE%E4%BD%A0Bing%E4%B8%80%E4%B8%8B%20|%20Let%20Me%20Bing%20That%20For%20You_files/jquery.js"></script>
+    <script
+        src="%E8%AE%A9%E6%88%91%E5%B8%AE%E4%BD%A0Bing%E4%B8%80%E4%B8%8B%20|%20Let%20Me%20Bing%20That%20For%20You_files/lmbtfy.js"></script>
+
+</body>
+
+</html>
